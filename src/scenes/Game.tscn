@@ -1,0 +1,82 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://src/tilesets/Outworld.tres" type="TileSet" id=1]
+[ext_resource path="res://src/objects/Yal.tscn" type="PackedScene" id=2]
+
+[sub_resource type="RectangleShape2D" id=2]
+
+custom_solver_bias = 0.0
+extents = Vector2( 256, 16 )
+
+[sub_resource type="RectangleShape2D" id=3]
+
+custom_solver_bias = 0.0
+extents = Vector2( 256, 16 )
+
+[sub_resource type="RectangleShape2D" id=4]
+
+custom_solver_bias = 0.0
+extents = Vector2( 16, 112 )
+
+[node name="Game" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="." index="0"]
+
+mode = 0
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_quadrant_size = 16
+cell_custom_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+cell_half_offset = 2
+cell_tile_origin = 0
+cell_y_sort = true
+cell_clip_uv = false
+collision_use_kinematic = false
+collision_friction = 1.0
+collision_bounce = 0.0
+collision_layer = 1
+collision_mask = 1
+occluder_light_mask = 1
+format = 1
+tile_data = PoolIntArray( 0, 5, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 6, 0, 65536, 2, 0, 65551, 2, 0, 131072, 2, 0, 131087, 2, 0, 196608, 2, 0, 196623, 2, 0, 262144, 2, 0, 262159, 2, 0, 327680, 2, 0, 327695, 2, 0, 393216, 2, 0, 393231, 2, 0, 458752, 2, 0, 458767, 2, 0, 524288, 3, 0, 524289, 1, 0, 524290, 0, 0, 524291, 0, 0, 524292, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 524300, 0, 0, 524301, 0, 0, 524302, 0, 0, 524303, 4, 0 )
+_sections_unfolded = [ "Cell" ]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Yal" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( 224, 160 )
+
+[node name="Walls" type="StaticBody2D" parent="." index="2"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Collision" ]
+
+[node name="2" type="CollisionShape2D" parent="Walls" index="0"]
+
+position = Vector2( 256, 272 )
+shape = SubResource( 2 )
+
+[node name="3" type="CollisionShape2D" parent="Walls" index="1"]
+
+position = Vector2( 256, 16 )
+shape = SubResource( 3 )
+
+[node name="4" type="CollisionShape2D" parent="Walls" index="2"]
+
+position = Vector2( 16, 144 )
+shape = SubResource( 4 )
+
+[node name="5" type="CollisionShape2D" parent="Walls" index="3"]
+
+position = Vector2( 496, 144 )
+shape = SubResource( 4 )
+
+

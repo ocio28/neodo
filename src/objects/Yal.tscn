@@ -1,0 +1,65 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://src/objects/Yal.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/yal.png" type="Texture" id=2]
+[ext_resource path="res://src/objects/BasicAttack.gd" type="Script" id=3]
+[ext_resource path="res://assets/images/items/basic_attack.png" type="Texture" id=4]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 6, 12 )
+
+[sub_resource type="CapsuleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 8.0
+
+[node name="Yal" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+maxHp = 1
+speed = Vector2( 120, 120 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BasicAttack" type="Area2D" parent="." index="2"]
+
+visible = false
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 3 )
+duration = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BasicAttack" index="0"]
+
+position = Vector2( -16, -12 )
+shape = SubResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="BasicAttack" index="1"]
+
+position = Vector2( -17, -12 )
+texture = ExtResource( 4 )
+
+[connection signal="body_entered" from="BasicAttack" to="BasicAttack" method="_on_BasicAttack_body_entered"]
+
+
