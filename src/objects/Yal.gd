@@ -4,14 +4,14 @@ extends "res://src/core/Human.gd"
 #	$Sword.visible = false
 
 func _physics_process(delta):
-#	if $Sword.attacking:
-#		return
+	if $BasicAttack.visible:
+		return
 		
 	var up = Input.is_action_pressed("ui_up")
 	var down = Input.is_action_pressed("ui_down")
 	var right = Input.is_action_pressed("ui_right")
 	var left = Input.is_action_pressed("ui_left")
-	var attack = Input.is_action_pressed("attack")
+	var attack = Input.is_action_just_pressed("attack")
 	
 	direction = Vector2()
 	if up:
@@ -24,12 +24,20 @@ func _physics_process(delta):
 	elif left:
 		direction.x = -1
 		
+	facing()
 	if direction.x == 1:
 		$Sprite.flip_h = true
 	elif direction.x == -1:
 		$Sprite.flip_h = false
+	
 	if attack:
-		$BasicAttack.act()
+		match facing:
+			0: $BasicAttack.position = $Top.position
+			1: $BasicAttack.position = $Right.position
+			2: $BasicAttack.position = $Down.position
+			3: $BasicAttack.position = $Left.position
+		$BasicAttack.act(facing)
+
 	
 	if up || down || right || left:
 		move(delta)
