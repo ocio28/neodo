@@ -4,7 +4,7 @@ extends "res://src/core/Human.gd"
 #	$Sword.visible = false
 
 func _physics_process(delta):
-	if $BasicAttack.visible:
+	if $Attack/BasicAttack.visible:
 		return
 		
 	var up = Input.is_action_pressed("ui_up")

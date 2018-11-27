@@ -65,15 +65,15 @@ position = Vector2( 16, 0 )
 
 position = Vector2( 0, 16 )
 
-[node name="Node2D" type="Node2D" parent="." index="6"]
+[node name="Attack" type="Node2D" parent="." index="6"]
 
-[node name="Sprite" type="Sprite" parent="Node2D" index="0"]
+[node name="Sprite" type="Sprite" parent="Attack" index="0"]
 
 position = Vector2( 8, 0 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BasicAttack" type="Area2D" parent="Node2D" index="1"]
+[node name="BasicAttack" type="Area2D" parent="Attack" index="1"]
 
 position = Vector2( 8, 0 )
 input_pickable = true
@@ -91,19 +91,19 @@ damage = 1
 duration = 0.1
 cooldown = 0.2
 
-[node name="Left" type="CollisionShape2D" parent="Node2D/BasicAttack" index="0"]
+[node name="Left" type="CollisionShape2D" parent="Attack/BasicAttack" index="0"]
 
 position = Vector2( -24, 0 )
 shape = SubResource( 2 )
 disabled = true
 
-[node name="Right" type="CollisionShape2D" parent="Node2D/BasicAttack" index="1"]
+[node name="Right" type="CollisionShape2D" parent="Attack/BasicAttack" index="1"]
 
 position = Vector2( 8, 0 )
 shape = SubResource( 3 )
 disabled = true
 
-[node name="Top" type="CollisionShape2D" parent="Node2D/BasicAttack" index="2"]
+[node name="Top" type="CollisionShape2D" parent="Attack/BasicAttack" index="2"]
 
 position = Vector2( -8, -20 )
 rotation = 1.5708
@@ -111,7 +111,7 @@ shape = SubResource( 4 )
 disabled = true
 _sections_unfolded = [ "Transform" ]
 
-[node name="Bottom" type="CollisionShape2D" parent="Node2D/BasicAttack" index="3"]
+[node name="Bottom" type="CollisionShape2D" parent="Attack/BasicAttack" index="3"]
 
 position = Vector2( -8, 20 )
 rotation = 1.5708
@@ -119,8 +119,8 @@ shape = SubResource( 4 )
 disabled = true
 _sections_unfolded = [ "Transform" ]
 
-[connection signal="area_entered" from="Node2D/BasicAttack" to="Node2D/BasicAttack" method="_on_BasicAttack_area_entered"]
+[connection signal="area_entered" from="Attack/BasicAttack" to="Attack/BasicAttack" method="_on_BasicAttack_area_entered"]
 
-[connection signal="body_entered" from="Node2D/BasicAttack" to="Node2D/BasicAttack" method="_on_BasicAttack_body_entered"]
+[connection signal="body_entered" from="Attack/BasicAttack" to="Attack/BasicAttack" method="_on_BasicAttack_body_entered"]
 
 
