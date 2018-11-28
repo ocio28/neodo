@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/ctr.png-427282d6cf598c478bb2e6120718ed95.stex"
+path="res://.import/rock.png-7742140ebfacdbb01527d138e21f9768.stex"
 
 [deps]
 
-source_file="res://assets/images/walls/ctr.png"
-dest_files=[ "res://.import/ctr.png-427282d6cf598c478bb2e6120718ed95.stex" ]
+source_file="res://assets/images/terrains/rock.png"
+dest_files=[ "res://.import/rock.png-7742140ebfacdbb01527d138e21f9768.stex" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/clb.png-019800503f4c068241dea558208aba81.stex"
+path="res://.import/evelin.png-b72c646930809515c7aa65b6ee81dbce.stex"
 
 [deps]
 
-source_file="res://assets/images/walls/clb.png"
-dest_files=[ "res://.import/clb.png-019800503f4c068241dea558208aba81.stex" ]
+source_file="res://assets/images/evelin.png"
+dest_files=[ "res://.import/evelin.png-b72c646930809515c7aa65b6ee81dbce.stex" ]
 
 [params]
 

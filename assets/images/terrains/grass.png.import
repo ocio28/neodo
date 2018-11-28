@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/horizontal.png-e7c1c30ded0bc91472d7600ceee2517d.stex"
+path="res://.import/grass.png-d03fd57af10df887ed100e72666584a5.stex"
 
 [deps]
 
-source_file="res://assets/images/terrains/horizontal.png"
-dest_files=[ "res://.import/horizontal.png-e7c1c30ded0bc91472d7600ceee2517d.stex" ]
+source_file="res://assets/images/terrains/grass.png"
+dest_files=[ "res://.import/grass.png-d03fd57af10df887ed100e72666584a5.stex" ]
 
 [params]
 
@@ -16,7 +16,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/objects/player/Player.gd" type="Script" id=1]
+[ext_resource path="res://assets/images/evelin.png" type="Texture" id=2]
+[ext_resource path="res://src/objects/player/BasicAttack.tscn" type="PackedScene" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 2.96452, 5.43987 )
+
+[node name="Evelin" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 2
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+maxHp = 1
+speed = Vector2( 120, 120 )
+
+[node name="Sprite" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Offset", "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
+
+position = Vector2( -0.510471, 1.73559 )
+shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Left" type="Position2D" parent="." index="2"]
+
+position = Vector2( -16, 0 )
+
+[node name="Top" type="Position2D" parent="." index="3"]
+
+position = Vector2( 0, -16 )
+
+[node name="Right" type="Position2D" parent="." index="4"]
+
+position = Vector2( 16, 0 )
+
+[node name="Down" type="Position2D" parent="." index="5"]
+
+position = Vector2( 0, 16 )
+
+[node name="BasicAttack" parent="." index="6" instance=ExtResource( 3 )]
+
+
