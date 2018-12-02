@@ -1,15 +1,19 @@
 extends "res://src/core/Npc.gd"
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+var time = 0
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	direction = Vector2(-1, 0)
 
-#func _process(delta):
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#	pass
+func _physics_process(delta):
+	time += delta
+	if time > 2:
+		time = 0
+		direction.x *= -1
+	
+	facing()
+	if facing == 1:
+		$Sprite.flip_h = true
+	else:
+		$Sprite.flip_h = false
+	move(delta)

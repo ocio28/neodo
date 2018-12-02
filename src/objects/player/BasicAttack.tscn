@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
-extents = Vector2( 1.23112, 6.28234 )
+extents = Vector2( 1, 6 )
 
 [node name="BasicAttack" type="Node2D"]
 

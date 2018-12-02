@@ -6,8 +6,8 @@ export(Vector2) var speed = Vector2(80, 80)
 const FloatingLabel = preload("res://src/ui/FloatingLabel.tscn")
 
 onready var hp = maxHp
-var direction = Vector2(-1, 0)
-var facing = 3
+var direction = Vector2(1, 0)
+var facing = 1
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -25,7 +25,7 @@ func facing():
 		facing = 3
 
 func move(delta):
-	move_and_collide(speed * direction * delta)
+	move_and_slide(speed * direction)
 
 func take_damage(atk):
 	hp -= atk

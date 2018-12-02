@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/evelin.png-b72c646930809515c7aa65b6ee81dbce.stex"
+path="res://.import/back.png-0a8308e7a944c69365e796e7e380b95f.stex"
 
 [deps]
 
-source_file="res://assets/images/evelin.png"
-dest_files=[ "res://.import/evelin.png-b72c646930809515c7aa65b6ee81dbce.stex" ]
+source_file="res://assets/images/evelin/back.png"
+dest_files=[ "res://.import/back.png-0a8308e7a944c69365e796e7e380b95f.stex" ]
 
 [params]
 
