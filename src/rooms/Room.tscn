@@ -122,4 +122,24 @@ position = Vector2( 304, 120 )
 
 position = Vector2( 320, 152 )
 
+[node name="Goli2" parent="Foes" index="1" instance=ExtResource( 4 )]
+
+position = Vector2( 216, 88 )
+
+[node name="Goli3" parent="Foes" index="2" instance=ExtResource( 4 )]
+
+position = Vector2( 88, 152 )
+
+[node name="Goli4" parent="Foes" index="3" instance=ExtResource( 4 )]
+
+position = Vector2( 264, 192 )
+
+[node name="Goli5" parent="Foes" index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 312, 64 )
+
+[node name="Goli6" parent="Foes" index="5" instance=ExtResource( 4 )]
+
+position = Vector2( 80, 48 )
+
 

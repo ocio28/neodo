@@ -8,10 +8,22 @@ const FloatingLabel = preload("res://src/ui/FloatingLabel.tscn")
 onready var hp = maxHp
 var direction = Vector2(1, 0)
 var facing = 1
+var takingDamage = false
+var damageDirection = Vector2(0, 0)
+var iframes = 0.3
+var i_time = 0
 
 func _physics_process(delta):
 	direction = Vector2()
-	act(delta)
+	if takingDamage:
+		i_time += delta
+		$Sprite.visible = !$Sprite.visible
+		knockBack()
+		if i_time > iframes:
+			takingDamage = false
+			$Sprite.visible = true
+	else:
+		act(delta)
 	
 func act(delta):
 	pass
@@ -34,13 +46,38 @@ func right():
 
 func move(delta):
 	move_and_slide(speed * direction)
+	
+func knockBack():
+	#print(damageDirection)
+	move_and_slide(speed * damageDirection * 1.2)
+	
+func facingVector():
+	match facing:
+		0: return Vector2(0, -1)
+		1: return Vector2(1, 0)
+		2: return Vector2(0, 1)
+		3: return Vector2(-1, 0)
+	return Vector2(0, 0)
 
-func take_damage(atk):
+func take_damage(atk, dir):
+	if takingDamage:
+		return
+		
+	damageDirection = dir
 	hp -= atk
 	show_label(atk)
 	if hp <= 0:
 		queue_free()
+	else:
+		i_time = 0
+		takingDamage = true
 	
+func do_damage(obj, contact):
+	var fv = facingVector()
+	if contact:
+		fv = obj.facingVector() * -1
+	if obj.has_method("take_damage"):
+		obj.take_damage(0, fv)
 	
 func show_label(value):
 	var label = FloatingLabel.instance()

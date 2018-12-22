@@ -32,6 +32,4 @@ func act(facing):
 
 func _on_Area2D_area_entered(area):
 	var obj = area.get_parent()
-	if obj.has_method("take_damage"):
-		print('take damage')
-		obj.take_damage(damage)
+	get_parent().do_damage(obj, false)

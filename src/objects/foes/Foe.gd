@@ -19,3 +19,6 @@ func act(delta):
 	else:
 		$Sprite.flip_h = false
 	move(delta)
+
+func _on_DamageArea_body_entered(body):
+	do_damage(body, true)
