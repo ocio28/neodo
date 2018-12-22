@@ -1,12 +1,6 @@
 extends "res://src/core/Human.gd"
-"""
-const AttackingTexture = preload("res://assets/images/evelin/evelin_attacking.png")
-const StandTexture = preload("res://assets/images/evelin/evelin.png")
-const FrontTexture = preload("res://assets/images/evelin/front.png")
-const BackTexture = preload("res://assets/images/evelin/back.png")
-"""
 
-func _physics_process(delta):
+func act(delta):
 	if $BasicAttack.attacking:
 		if facing == 1 || facing == 3:
 			$Sprite.frame = 3
@@ -14,27 +8,26 @@ func _physics_process(delta):
 			$Sprite.frame = 4
 		return
 		
-	#$Sprite.texture = StandTexture
 	var up = Input.is_action_pressed("ui_up")
 	var down = Input.is_action_pressed("ui_down")
 	var right = Input.is_action_pressed("ui_right")
 	var left = Input.is_action_pressed("ui_left")
 	var attack = Input.is_action_just_pressed("attack")
 	
-	direction = Vector2()
+	$Sprite.set_z_index(0)
 	if up:
-		#$Sprite.texture = BackTexture
-		direction.y = -1
+		up()
+		$Sprite.set_z_index(1)
 	elif down:
-		#$Sprite.texture = FrontTexture
-		direction.y = 1
+		down()
 		
 	if right:
-		direction.x = 1
+		right()
 	elif left:
-		direction.x = -1
-		
-	facing()
+		left()
+			
+	if attack:
+		$BasicAttack.act(facing)
 	
 	match facing:
 		0: 
@@ -51,10 +44,6 @@ func _physics_process(delta):
 			$BasicAttack.position = $Left.position
 			$Sprite.frame = 0
 			$Sprite.flip_h = true
-		
-	if attack:
-		$BasicAttack.act(facing)
-
-	
+			
 	if up || down || right || left:
 		move(delta)

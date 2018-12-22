@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export(int) var maxHp = 1
-export(Vector2) var speed = Vector2(80, 80)
+export(Vector2) var speed = Vector2(40, 40)
 
 const FloatingLabel = preload("res://src/ui/FloatingLabel.tscn")
 
@@ -9,20 +9,28 @@ onready var hp = maxHp
 var direction = Vector2(1, 0)
 var facing = 1
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
+func _physics_process(delta):
+	direction = Vector2()
+	act(delta)
+	
+func act(delta):
 	pass
-
-func facing():
-	if direction.y == -1:
-		facing = 0
-	elif direction.y == 1:
-		facing = 2
-	elif direction.x == 1:
-		facing = 1
-	elif direction.x == -1:
-		facing = 3
+	
+func up():
+	facing = 0
+	direction.y = -1
+	
+func down():
+	facing = 2
+	direction.y = 1
+	
+func left():
+	facing = 3
+	direction.x = -1
+	
+func right():
+	facing = 1
+	direction.x = 1
 
 func move(delta):
 	move_and_slide(speed * direction)

@@ -1,17 +1,19 @@
 extends "res://src/core/Npc.gd"
 
 var time = 0
+var shift = false
 
-func _ready():
-	direction = Vector2(-1, 0)
-
-func _physics_process(delta):
+func act(delta):
 	time += delta
 	if time > 2:
 		time = 0
-		direction.x *= -1
+		shift = !shift
 	
-	facing()
+	if shift:
+		right()
+	else:
+		left()
+	
 	if facing == 1:
 		$Sprite.flip_h = true
 	else:

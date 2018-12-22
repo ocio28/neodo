@@ -8,7 +8,7 @@
 [ext_resource path="res://assets/images/evelin/down_attacking.png" type="Texture" id=6]
 [ext_resource path="res://src/objects/player/BasicAttack.tscn" type="PackedScene" id=7]
 
-[sub_resource type="SpriteFrames" id=2]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ) ],
@@ -17,12 +17,12 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
 extents = Vector2( 2.51047, 5.73559 )
 
-[node name="Evelin" type="KinematicBody2D"]
+[node name="Evelin" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -31,20 +31,21 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 maxHp = 1
-speed = Vector2( 120, 120 )
+speed = Vector2( 50, 50 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 
-frames = SubResource( 2 )
+frames = SubResource( 1 )
 animation = "default"
 frame = 1
+_sections_unfolded = [ "Z Index" ]
 
 [node name="BasicAttack" parent="." index="1" instance=ExtResource( 7 )]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="2"]
 
 position = Vector2( -0.510471, 1.73559 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Left" type="Position2D" parent="." index="3"]
@@ -53,7 +54,7 @@ position = Vector2( -13, 1 )
 
 [node name="Top" type="Position2D" parent="." index="4"]
 
-position = Vector2( 5, -8 )
+position = Vector2( 1, -9 )
 
 [node name="Right" type="Position2D" parent="." index="5"]
 
