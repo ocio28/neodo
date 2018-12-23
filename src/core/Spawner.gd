@@ -1,8 +1,6 @@
-extends Node2D
+extends Node
 
-enum ItemType {VOID, HEART}
-
-export (ItemType) var drop = ItemType.VOID
+const Heart = preload("res://src/objects/items/Heart.tscn")
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -14,9 +12,9 @@ func _ready():
 #	# Update game logic here.
 #	pass
 
-
-func take_damage(dmg, dir):
-	match drop:
-		ItemType.HEART: Spawner.heart(Vector2(global_position.x, global_position.y))
-			
-	queue_free()
+func heart(position):
+	_instance(Heart.instance(), position)	
+	
+func _instance(obj, position):
+	obj.position = position
+	get_tree().root.add_child(obj)

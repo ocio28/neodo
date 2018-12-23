@@ -10,14 +10,13 @@ var direction = Vector2(1, 0)
 var facing = 1
 var takingDamage = false
 var damageDirection = Vector2(0, 0)
-var iframes = 0.3
+var iframes = 0.25
 var i_time = 0
 
 func _physics_process(delta):
 	direction = Vector2()
 	if takingDamage:
 		i_time += delta
-		$Sprite.visible = !$Sprite.visible
 		knockBack()
 		if i_time > iframes:
 			takingDamage = false
@@ -48,8 +47,8 @@ func move(delta):
 	move_and_slide(speed * direction)
 	
 func knockBack():
-	#print(damageDirection)
-	move_and_slide(speed * damageDirection * 1.2)
+	$Sprite.visible = !$Sprite.visible
+	move_and_slide(speed * damageDirection * 1.3)
 	
 func facingVector():
 	match facing:
@@ -59,13 +58,14 @@ func facingVector():
 		3: return Vector2(-1, 0)
 	return Vector2(0, 0)
 
-func take_damage(atk, dir):
+func take_damage(dmg, dir):
 	if takingDamage:
 		return
 		
 	damageDirection = dir
-	hp -= atk
-	show_label(atk)
+	hp -= dmg
+	show_label(dmg)
+	on_hp_change()
 	if hp <= 0:
 		queue_free()
 	else:
@@ -77,7 +77,14 @@ func do_damage(obj, contact):
 	if contact:
 		fv = obj.facingVector() * -1
 	if obj.has_method("take_damage"):
-		obj.take_damage(0, fv)
+		obj.take_damage(1, fv)
+		
+func take_heal(heal):
+	hp += heal
+	on_hp_change()
+		
+func on_hp_change():
+	pass
 	
 func show_label(value):
 	var label = FloatingLabel.instance()

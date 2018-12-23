@@ -21,4 +21,6 @@ func act(delta):
 	move(delta)
 
 func _on_DamageArea_body_entered(body):
+	if body.is_in_group("walls"):
+		return
 	do_damage(body, true)

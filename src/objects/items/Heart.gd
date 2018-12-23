@@ -1,8 +1,8 @@
 extends Node2D
 
-enum ItemType {VOID, HEART}
-
-export (ItemType) var drop = ItemType.VOID
+# class member variables go here, for example:
+# var a = 2
+# var b = "textvar"
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -15,8 +15,7 @@ func _ready():
 #	pass
 
 
-func take_damage(dmg, dir):
-	match drop:
-		ItemType.HEART: Spawner.heart(Vector2(global_position.x, global_position.y))
-			
+func _on_Area2D_body_entered(body):
+	if body.has_method("take_heal"):
+		body.take_heal(1)
 	queue_free()

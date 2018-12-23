@@ -13,7 +13,7 @@ extents = Vector2( 5, 3 )
 custom_solver_bias = 0.0
 extents = Vector2( 5, 4 )
 
-[node name="Goli" type="KinematicBody2D" index="0" groups=[
+[node name="Goli" type="KinematicBody2D" groups=[
 "hit",
 ]]
 
@@ -23,7 +23,7 @@ collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-maxHp = 3
+maxHp = 2
 speed = Vector2( 20, 20 )
 
 [node name="Sprite" type="Sprite" parent="." index="0"]

@@ -36,7 +36,7 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
 maxHp = 1
-speed = Vector2( 50, 50 )
+speed = Vector2( 70, 70 )
 
 [node name="Sprite" type="AnimatedSprite" parent="." index="0"]
 

@@ -1,5 +1,9 @@
 extends "res://src/core/Human.gd"
 
+func _ready():
+	maxHp = Core.state.player.maxHp
+	hp = Core.state.player.hp
+
 func act(delta):
 	if $BasicAttack.attacking:
 		if facing == 1 || facing == 3:
@@ -47,9 +51,12 @@ func act(delta):
 			
 	if up || down || right || left:
 		move(delta)
+		
+	if hp <= 0:
+		Core.you_lose()
 
-
-func _on_Area2D_body_entered(body):
-	take_damage(0, facingVector())
+func on_hp_change():
+	Core.state.player.hp = hp
+	Core.state.player.maxHp = maxHp
 
 
