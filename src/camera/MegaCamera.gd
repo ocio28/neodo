@@ -29,6 +29,7 @@ func move(direction):
 func _process(delta):
 	#position.x = target.position.x
 	#position.y = target.position.y
+	print(target.position, '::', position)
 	
 	if target.position.y < (position.y):
 		move(DOWN)
@@ -42,7 +43,7 @@ func _process(delta):
 	if target.position.x > (position.x):
 		move(RIGHT)
 			
-	if move_target.y != 0:
+	"""if move_target.y != 0:
 		position.y += 700 * delta * move_direction.y
 		if abs(position.y) >= abs(move_target.y):
 			position.y = move_target.y
@@ -54,4 +55,4 @@ func _process(delta):
 		if abs(position.x) >= abs(move_target.x):
 			position.y = move_target.y
 			move_target.x = 0
-			get_tree().paused = false	
+			get_tree().paused = false	"""

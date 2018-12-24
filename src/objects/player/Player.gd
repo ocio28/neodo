@@ -1,10 +1,15 @@
 extends "res://src/core/Human.gd"
 
+var transiting = false
+
 func _ready():
 	maxHp = Core.state.player.maxHp
 	hp = Core.state.player.hp
 
 func act(delta):
+	if transiting:
+		return
+		
 	if $BasicAttack.attacking:
 		if facing == 1 || facing == 3:
 			$Sprite.frame = 3
@@ -54,6 +59,9 @@ func act(delta):
 		
 	if hp <= 0:
 		Core.you_lose()
+
+func force_move(velocity):
+	move_and_slide(velocity)
 
 func on_hp_change():
 	Core.state.player.hp = hp
