@@ -16,5 +16,5 @@ func heart(position):
 	_instance(Heart.instance(), position)	
 	
 func _instance(obj, position):
-	obj.position = position
+	obj.position = Vector2(position.x, position.y)
 	get_tree().root.add_child(obj)

@@ -3,8 +3,8 @@
 [ext_resource path="res://src/scenes/Game.gd" type="Script" id=1]
 [ext_resource path="res://src/rooms/outworld/Outroom.tscn" type="PackedScene" id=2]
 [ext_resource path="res://src/objects/player/Evelin.tscn" type="PackedScene" id=3]
-[ext_resource path="res://src/ui/GUI.tscn" type="PackedScene" id=4]
-[ext_resource path="res://src/camera/EdgeCamera.gd" type="Script" id=5]
+[ext_resource path="res://src/camera/EdgeCamera.gd" type="Script" id=4]
+[ext_resource path="res://src/ui/GUI.tscn" type="PackedScene" id=5]
 
 [node name="Game" type="Node2D" index="0"]
 
@@ -14,20 +14,18 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Room" parent="." index="0" instance=ExtResource( 2 )]
+[node name="Outworld" parent="." index="0" instance=ExtResource( 2 )]
 
-position = Vector2( -192, -112 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Evelin" parent="." index="1" instance=ExtResource( 3 )]
 
-position = Vector2( -160, 80 )
+position = Vector2( 208, 192 )
 
-[node name="GUI" parent="." index="2" instance=ExtResource( 4 )]
-
-[node name="EdgeCamera" type="Camera2D" parent="." index="3"]
+[node name="EdgeCamera" type="Camera2D" parent="." index="2"]
 
 pause_mode = 2
+position = Vector2( 192, 112 )
 anchor_mode = 1
 rotating = false
 current = true
@@ -50,18 +48,15 @@ drag_margin_bottom = 1.0
 editor_draw_screen = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Pause", "Transform" ]
 targetPath = NodePath("../Evelin")
 
-[node name="Left" type="Position2D" parent="EdgeCamera" index="0"]
+[node name="GUI" parent="EdgeCamera" index="0" instance=ExtResource( 5 )]
 
-position = Vector2( -192, 0 )
-_sections_unfolded = [ "Transform" ]
-
-[node name="Right" type="Position2D" parent="EdgeCamera" index="1"]
-
-position = Vector2( 192, 0 )
-_sections_unfolded = [ "Transform" ]
+margin_left = -200.0
+margin_top = -112.0
+margin_right = -200.0
+margin_bottom = -112.0
 
 

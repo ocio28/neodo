@@ -17,6 +17,6 @@ func _ready():
 
 func take_damage(dmg, dir):
 	match drop:
-		ItemType.HEART: Spawner.heart(Vector2(global_position.x, global_position.y))
+		ItemType.HEART: Spawner.heart(global_position)
 			
 	queue_free()

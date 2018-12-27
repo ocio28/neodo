@@ -67,7 +67,7 @@ func take_damage(dmg, dir):
 	show_label(dmg)
 	on_hp_change()
 	if hp <= 0:
-		queue_free()
+		kill()
 	else:
 		i_time = 0
 		takingDamage = true
@@ -85,6 +85,9 @@ func take_heal(heal):
 		
 func on_hp_change():
 	pass
+	
+func kill():
+	queue_free()
 	
 func show_label(value):
 	var label = FloatingLabel.instance()

@@ -1,24 +1,45 @@
 extends "res://src/core/Npc.gd"
 
+export (int) var shiftTime = 2
+export (Vector2) var control = Vector2(1, 0)
 var time = 0
-var shift = false
+#var shift = false
 
 func act(delta):
 	time += delta
-	if time > 2:
-		time = 0
-		shift = !shift
+	if time > shiftTime:
+		do_shift()
 	
-	if shift:
+	if control.x < 0:
 		right()
-	else:
+	elif control.x > 0:
 		left()
+	if control.y < 0:
+		up()
+	elif control.y > 0:
+		down()
 	
 	if facing == 1:
 		$Sprite.flip_h = true
 	else:
 		$Sprite.flip_h = false
+		
 	move(delta)
+	
+	var slides = get_slide_count()
+	if slides > 0:
+		do_shift()
+	#for i in range(count):
+	#	var collision = get_slide_collision(i)
+		
+func do_shift():
+	time = 0
+	control *= -1
+	
+func kill():
+	if randf() > 0.5:
+		Spawner.heart(global_position)
+	queue_free()
 
 func _on_DamageArea_body_entered(body):
 	if body.is_in_group("walls"):
