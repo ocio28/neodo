@@ -1,4 +1,4 @@
-extends Control
+extends Node2D
 
 # class member variables go here, for example:
 # var a = 2
@@ -10,5 +10,6 @@ func _ready():
 	pass
 
 func _process(delta):
-	$Panel/Hp.text = str(Core.state.player.hp)
-	$Keys/Value.text = str(Core.state.keys)
+	if get_child_count() == 1:
+		Spawner.key($ItemPosition.global_position)
+		queue_free()

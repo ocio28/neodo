@@ -23,7 +23,8 @@ func new_game():
 		player = {
 			maxHp = 2,
 			hp = 2
-		}
+		},
+		keys = 0
 	}
 	Utils.goto_game()
 	
@@ -47,3 +48,9 @@ func circle():
 
 func is_completed():
 	return state.square && state.circle && state.triangle
+	
+func take_key():
+	state.keys += 1
+	
+func use_key():
+	state.keys -= 1

@@ -56,9 +56,6 @@ func act(delta):
 			
 	if up || down || right || left:
 		move(delta)
-		
-	if hp <= 0:
-		Core.you_lose()
 
 func force_move(velocity):
 	move_and_slide(velocity)

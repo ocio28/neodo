@@ -15,6 +15,10 @@ var direction = null
 var moveTarget = Vector2(0, 0)
 
 func _physics_process(delta):
+	if target == null || target.is_queued_for_deletion():
+		target = null
+		return
+		
 	if direction == null:
 		if target.position.x < position.x - HALF.x:
 			move(LEFT)
