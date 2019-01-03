@@ -14,6 +14,9 @@ func goto_youwin():
 	
 func goto_youlose():
 	goto_scene("YouLose")
+	
+func goto_bonusroom():
+	pass
 
 func goto_scene(name):
 	# This function will usually be called from a signal callback,
