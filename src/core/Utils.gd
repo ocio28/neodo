@@ -22,7 +22,7 @@ func goto_youwin():
 func goto_youlose():
 	goto_scene("YouLose")
 
-func goto_bonusroom(room, position):
+func goto_room(room, position):
 	current_room.name = path + room + ".tscn"
 	current_room.position = position
 	goto_scene("Game")

@@ -59,8 +59,13 @@ func act(delta):
 
 func force_move(velocity):
 	move_and_slide(velocity)
+	
+func take_bigheart():
+	maxHp += 1
+	on_hp_change()
 
 func on_hp_change():
+	print(hp, maxHp)
 	Core.state.player.hp = hp
 	Core.state.player.maxHp = maxHp
 

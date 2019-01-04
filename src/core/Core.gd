@@ -4,10 +4,6 @@ var state = null
 var playing = false
 var gameTime = 0
 
-func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
 	
 func _process(delta):
 	if playing:
@@ -24,6 +20,7 @@ func new_game():
 			maxHp = 2,
 			hp = 2
 		},
+		items = [],
 		keys = 0
 	}
 	Utils.goto_game()
@@ -54,3 +51,9 @@ func take_key():
 	
 func use_key():
 	state.keys -= 1
+
+func exist_item(id):
+	return state.items.find(id) > -1
+	
+func take_item(id):
+	state.items.append(id)

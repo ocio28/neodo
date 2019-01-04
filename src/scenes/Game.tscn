@@ -17,11 +17,12 @@ __meta__ = {
 
 [node name="Evelin" parent="." index="1" instance=ExtResource( 2 )]
 
-position = Vector2( 45.8851, 194.795 )
+position = Vector2( 192, -40 )
 
 [node name="EdgeCamera" type="Camera2D" parent="." index="2"]
 
 pause_mode = 2
+editor/display_folded = true
 position = Vector2( 192, 112 )
 anchor_mode = 1
 rotating = false
@@ -47,6 +48,9 @@ editor_draw_limits = true
 editor_draw_drag_margin = true
 script = ExtResource( 3 )
 _sections_unfolded = [ "Pause", "Transform" ]
+__meta__ = {
+"_edit_lock_": true
+}
 targetPath = NodePath("../Evelin")
 
 [node name="GUI" parent="EdgeCamera" index="0" instance=ExtResource( 4 )]

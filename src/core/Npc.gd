@@ -80,8 +80,9 @@ func do_damage(obj, contact):
 		obj.take_damage(1, fv)
 		
 func take_heal(heal):
-	hp += heal
-	on_hp_change()
+	if hp < maxHp:
+		hp += heal
+		on_hp_change()
 		
 func on_hp_change():
 	pass

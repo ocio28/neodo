@@ -1,14 +1,32 @@
 extends Control
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
+const HeartTexture = preload("res://assets/images/items/heart.png")
+const HeartEmptyTexture = preload("res://assets/images/items/heart_empty.png")
+const Heart = preload("res://src/ui/Heart.tscn")
 
 func _ready():
-	# Called when the node is added to the scene for the first time.
-	# Initialization here
-	pass
+	for i in Core.state.player.maxHp:
+		var instance = Heart.instance()
+		instance.rect_position = Vector2((i * 10) + 2, 2)
+		instance.texture = HeartEmptyTexture
+		$Hp.add_child(instance)
+	#$Panel/Heart.texture = Heart
 
 func _process(delta):
-	$Panel/Hp.text = str(Core.state.player.hp)
-	$Keys/Value.text = str(Core.state.keys)
+	for i in Core.state.player.maxHp:
+		var heart = $Hp.get_child(i)
+		if heart == null:
+			heart = create_heart(i)
+		if i < Core.state.player.hp:
+			heart.texture = HeartTexture
+		else:
+			heart.texture = HeartEmptyTexture
+	#$Panel/Hp.text = str(Core.state.player.hp) + '/' + str(Core.state.player.maxHp)
+	#$Keys/Value.text = str(Core.state.keys)
+
+func create_heart(i):
+	var instance = Heart.instance()
+	instance.rect_position = Vector2((i * 10) + 2, 2)
+	instance.texture = HeartEmptyTexture
+	$Hp.add_child(instance)
+	return instance
