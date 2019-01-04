@@ -5,7 +5,7 @@
 [ext_resource path="res://src/camera/EdgeCamera.gd" type="Script" id=3]
 [ext_resource path="res://src/ui/GUI.tscn" type="PackedScene" id=4]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -15,14 +15,15 @@ __meta__ = {
 
 [node name="CurrentRoom" type="Node2D" parent="." index="0"]
 
-[node name="Evelin" parent="." index="1" instance=ExtResource( 2 )]
+[node name="Spawner" type="Node2D" parent="." index="1"]
+
+[node name="Evelin" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 192, -40 )
 
-[node name="EdgeCamera" type="Camera2D" parent="." index="2"]
+[node name="EdgeCamera" type="Camera2D" parent="." index="3"]
 
 pause_mode = 2
-editor/display_folded = true
 position = Vector2( 192, 112 )
 anchor_mode = 1
 rotating = false

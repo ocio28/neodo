@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex"
+path="res://.import/triangle_border.png-565f3969040d17e63ececee28e4d30b7.stex"
 
 [deps]
 
-source_file="res://assets/images/items/square.png"
-dest_files=[ "res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex" ]
+source_file="res://assets/images/items/triangle_border.png"
+dest_files=[ "res://.import/triangle_border.png-565f3969040d17e63ececee28e4d30b7.stex" ]
 
 [params]
 

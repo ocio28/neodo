@@ -10,7 +10,6 @@ func _ready():
 		instance.rect_position = Vector2((i * 10) + 2, 2)
 		instance.texture = HeartEmptyTexture
 		$Hp.add_child(instance)
-	#$Panel/Heart.texture = Heart
 
 func _process(delta):
 	for i in Core.state.player.maxHp:
@@ -21,8 +20,6 @@ func _process(delta):
 			heart.texture = HeartTexture
 		else:
 			heart.texture = HeartEmptyTexture
-	#$Panel/Hp.text = str(Core.state.player.hp) + '/' + str(Core.state.player.maxHp)
-	#$Keys/Value.text = str(Core.state.keys)
 
 func create_heart(i):
 	var instance = Heart.instance()

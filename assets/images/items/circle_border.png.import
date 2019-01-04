@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex"
+path="res://.import/circle_border.png-07abbac9a5887416336d39d169459b77.stex"
 
 [deps]
 
-source_file="res://assets/images/items/square.png"
-dest_files=[ "res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex" ]
+source_file="res://assets/images/items/circle_border.png"
+dest_files=[ "res://.import/circle_border.png-07abbac9a5887416336d39d169459b77.stex" ]
 
 [params]
 

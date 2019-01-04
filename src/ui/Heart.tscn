@@ -2,7 +2,7 @@
 
 [ext_resource path="res://assets/images/items/heart.png" type="Texture" id=1]
 
-[node name="Heart" type="TextureRect"]
+[node name="Heart" type="TextureRect" index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

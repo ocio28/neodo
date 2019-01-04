@@ -20,6 +20,7 @@ func new_game():
 			maxHp = 2,
 			hp = 2
 		},
+		bits = 0,
 		items = [],
 		keys = 0
 	}
@@ -57,3 +58,6 @@ func exist_item(id):
 	
 func take_item(id):
 	state.items.append(id)
+	
+func take_bit(amount):
+	state.bits += amount

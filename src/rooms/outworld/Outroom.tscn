@@ -290,7 +290,7 @@ position = Vector2( 296, 360 )
 
 position = Vector2( -344, 168 )
 rotation = 1.5708
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="OpenDoor" parent="Doors" index="2" instance=ExtResource( 11 )]
 

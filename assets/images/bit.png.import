@@ -2,12 +2,12 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex"
+path="res://.import/bit.png-637e1f38d35b23afd17bd778df2aefbc.stex"
 
 [deps]
 
-source_file="res://assets/images/items/square.png"
-dest_files=[ "res://.import/square.png-66b6bd4f6982adbdcfd2391a25e0c8e9.stex" ]
+source_file="res://assets/images/bit.png"
+dest_files=[ "res://.import/bit.png-637e1f38d35b23afd17bd778df2aefbc.stex" ]
 
 [params]
 
