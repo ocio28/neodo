@@ -1,6 +1,13 @@
 extends Node
 
+const path = "res://src/rooms"
+
 var current_scene = null
+var current_room = {
+	name = path + "/outworld/Outroom.tscn",
+	position = "Initial"
+}
+
 
 func _ready():
 	var root = get_tree().get_root()
@@ -14,9 +21,11 @@ func goto_youwin():
 	
 func goto_youlose():
 	goto_scene("YouLose")
-	
-func goto_bonusroom():
-	pass
+
+func goto_bonusroom(room, position):
+	current_room.name = path + room + ".tscn"
+	current_room.position = position
+	goto_scene("Game")
 
 func goto_scene(name):
 	# This function will usually be called from a signal callback,

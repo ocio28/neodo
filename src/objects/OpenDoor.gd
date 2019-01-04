@@ -1,6 +1,7 @@
 extends Node2D
 
-export (String) var room = "BonusRoom"
+export (String, "Outworld", "BonusRoom") var room = "BonusRoom"
+export (String, "Initial", "BonusExit") var initialPosition = "Initial"
 
 func _ready():
 	# Called when the node is added to the scene for the first time.
@@ -14,4 +15,5 @@ func _ready():
 
 
 func _on_Area2D_body_entered(body):
-	pass # replace with function body
+	print('opendoor', body)
+	Utils.goto_bonusroom('/' + room, initialPosition)

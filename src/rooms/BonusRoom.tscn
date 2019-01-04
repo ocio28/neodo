@@ -3,7 +3,7 @@
 [ext_resource path="res://src/tilesets/Outworld.tres" type="TileSet" id=1]
 [ext_resource path="res://src/objects/OpenDoor.tscn" type="PackedScene" id=2]
 
-[node name="BonusRoom" type="Node2D"]
+[node name="BonusRoom" type="Node2D" index="0"]
 
 [node name="TileMap" type="TileMap" parent="." index="0"]
 
@@ -19,12 +19,12 @@ cell_clip_uv = false
 collision_use_kinematic = false
 collision_friction = 1.0
 collision_bounce = 0.0
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 33
 occluder_light_mask = 1
 format = 1
 tile_data = PoolIntArray( 65540, 2, 0, 65541, 2, 0, 65542, 2, 0, 65543, 2, 0, 65544, 2, 0, 65545, 2, 0, 65546, 2, 0, 65547, 2, 0, 65548, 2, 0, 65549, 2, 0, 65550, 2, 0, 65551, 2, 0, 65552, 2, 0, 65553, 2, 0, 65554, 2, 0, 65555, 2, 0, 131075, 2, 0, 131076, 2, 0, 131091, 2, 0, 131092, 2, 0, 196611, 2, 0, 196628, 2, 0, 262147, 2, 0, 262164, 2, 0, 327683, 2, 0, 327700, 2, 0, 393219, 2, 0, 393236, 2, 0, 458755, 2, 0, 458772, 2, 0, 524291, 2, 0, 524308, 2, 0, 589827, 2, 0, 589844, 2, 0, 655363, 2, 0, 655380, 2, 0, 720899, 2, 0, 720900, 2, 0, 720915, 2, 0, 720916, 2, 0, 786436, 2, 0, 786437, 2, 0, 786438, 2, 0, 786439, 2, 0, 786440, 2, 0, 786441, 2, 0, 786442, 2, 0, 786443, 2, 0, 786445, 2, 0, 786446, 2, 0, 786447, 2, 0, 786448, 2, 0, 786449, 2, 0, 786450, 2, 0, 786451, 2, 0 )
-_sections_unfolded = [ "Cell" ]
+_sections_unfolded = [ "Cell", "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -32,5 +32,11 @@ __meta__ = {
 [node name="OpenDoor" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 200, 200 )
+room = "outworld/Outroom"
+initialPosition = "BonusExit"
+
+[node name="Initial" type="Position2D" parent="." index="2"]
+
+position = Vector2( 200, 184 )
 
 

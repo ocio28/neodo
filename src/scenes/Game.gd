@@ -5,7 +5,12 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
-	pass
+	var room = load(Utils.current_room.name)
+	var instance = room.instance()
+	
+	$Evelin.position = instance.get_node(Utils.current_room.position).position
+	$CurrentRoom.add_child(instance)
+
 
 func _process(delta):
 	if $Evelin == null:
