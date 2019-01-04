@@ -12,7 +12,10 @@ var current_room = {
 func _ready():
 	var root = get_tree().get_root()
 	current_scene = root.get_child(root.get_child_count() - 1)
-	
+
+func goto_title():
+	goto_scene("Title")
+
 func goto_game():
 	goto_scene("Game")
 	

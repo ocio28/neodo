@@ -15,4 +15,4 @@ func _ready():
 
 
 func _on_Timeout_timeout():
-	Core.new_game()
+	Utils.goto_title()
