@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://src/objects/foes/Foe.gd" type="Script" id=1]
+[ext_resource path="res://src/objects/foes/Tomano.gd" type="Script" id=1]
 [ext_resource path="res://assets/images/foes/Foe.png" type="Texture" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -11,33 +11,28 @@ extents = Vector2( 4, 4 )
 [sub_resource type="RectangleShape2D" id=2]
 
 custom_solver_bias = 0.0
-extents = Vector2( 6, 6 )
+extents = Vector2( 6, 7 )
 
-[node name="Foe" type="KinematicBody2D" index="0"]
+[node name="Tomano" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 32
-collision_mask = 1
+collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision", "collision" ]
+_sections_unfolded = [ "Collision" ]
 __meta__ = {
 "_edit_lock_": true
 }
 maxHp = 1
-speed = Vector2( 80, 80 )
-shiftTime = 1
-control = Vector2( 1, 0 )
+speed = Vector2( 40, 40 )
+shiftTime = 0.8
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-self_modulate = Color( 0.202637, 0.376778, 0.648438, 1 )
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-__meta__ = {
-"_edit_lock_": true
-}
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -46,6 +41,7 @@ shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="." index="2"]
 
+position = Vector2( 0, 1 )
 input_pickable = true
 gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
@@ -55,13 +51,14 @@ collision_layer = 8
 audio_bus_override = false
 audio_bus_name = "Master"
 _sections_unfolded = [ "Collision" ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+
+shape = SubResource( 2 )
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
-
-position = Vector2( 0, 2 )
-shape = SubResource( 2 )
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 
 

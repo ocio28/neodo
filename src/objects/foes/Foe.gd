@@ -1,6 +1,6 @@
 extends "res://src/core/Npc.gd"
 
-export (int) var shiftTime = 2
+export (int) var shiftTime = 1
 export (Vector2) var control = Vector2(1, 0)
 var time = 0
 #var shift = false

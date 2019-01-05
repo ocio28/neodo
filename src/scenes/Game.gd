@@ -5,6 +5,7 @@ extends Node2D
 # var b = "textvar"
 
 func _ready():
+	print(Utils.current_room.name)
 	var room = load(Utils.current_room.name)
 	var instance = room.instance()
 	

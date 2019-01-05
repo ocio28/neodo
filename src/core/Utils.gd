@@ -4,7 +4,7 @@ const path = "res://src/rooms"
 
 var current_scene = null
 var current_room = {
-	name = path + "/outworld/Outroom.tscn",
+	name = path + "/Outworld.tscn",
 	position = "Initial"
 }
 

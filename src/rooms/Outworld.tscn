@@ -1,19 +1,21 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/images/terrains/grass.png" type="Texture" id=1]
 [ext_resource path="res://src/tilesets/Outworld.tres" type="TileSet" id=2]
 [ext_resource path="res://src/objects/world/Bush.tscn" type="PackedScene" id=3]
 [ext_resource path="res://src/objects/foes/Goli.tscn" type="PackedScene" id=4]
 [ext_resource path="res://src/rooms/KillUnlock.gd" type="Script" id=5]
-[ext_resource path="res://src/objects/world/Goal.tscn" type="PackedScene" id=6]
-[ext_resource path="res://src/objects/items/Circle.tscn" type="PackedScene" id=7]
-[ext_resource path="res://src/objects/items/Square.tscn" type="PackedScene" id=8]
-[ext_resource path="res://src/objects/items/Triangle.tscn" type="PackedScene" id=9]
-[ext_resource path="res://src/objects/world/Door.tscn" type="PackedScene" id=10]
-[ext_resource path="res://src/objects/OpenDoor.tscn" type="PackedScene" id=11]
-[ext_resource path="res://src/objects/world/Key.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/objects/foes/Tomano.tscn" type="PackedScene" id=6]
+[ext_resource path="res://src/objects/foes/Foe.tscn" type="PackedScene" id=7]
+[ext_resource path="res://src/objects/world/Goal.tscn" type="PackedScene" id=8]
+[ext_resource path="res://src/objects/items/Circle.tscn" type="PackedScene" id=9]
+[ext_resource path="res://src/objects/items/Square.tscn" type="PackedScene" id=10]
+[ext_resource path="res://src/objects/items/Triangle.tscn" type="PackedScene" id=11]
+[ext_resource path="res://src/objects/world/Door.tscn" type="PackedScene" id=12]
+[ext_resource path="res://src/objects/OpenDoor.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/objects/world/Key.tscn" type="PackedScene" id=14]
 
-[node name="Outworld" type="Node2D" index="0"]
+[node name="Outworld" type="Node2D"]
 
 __meta__ = {
 "_edit_horizontal_guides_": [ 216.0, 432.0, -216.0 ],
@@ -28,6 +30,9 @@ __meta__ = {
 position = Vector2( 184, 112 )
 scale = Vector2( 72, 41 )
 texture = ExtResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="TileMap" type="TileMap" parent="." index="1"]
 
@@ -163,99 +168,83 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Goli" parent="Foes" index="0" instance=ExtResource( 4 )]
-
-position = Vector2( 208, 192 )
-shiftTime = 2
-control = Vector2( 1, 0 )
-
-[node name="Goli12" parent="Foes" index="1" instance=ExtResource( 4 )]
+[node name="Goli12" parent="Foes" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( 224, 240 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli13" parent="Foes" index="2" instance=ExtResource( 4 )]
+[node name="Goli13" parent="Foes" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( 224, 336 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli14" parent="Foes" index="3" instance=ExtResource( 4 )]
+[node name="Goli14" parent="Foes" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( 184, 376 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli2" parent="Foes" index="4" instance=ExtResource( 4 )]
-
-position = Vector2( 248, 88 )
-shiftTime = 2
-control = Vector2( 1, 0 )
-
-[node name="Goli3" parent="Foes" index="5" instance=ExtResource( 4 )]
-
-position = Vector2( 368, 96 )
-shiftTime = 2
-control = Vector2( 1, 0 )
-
-[node name="Goli4" parent="Foes" index="6" instance=ExtResource( 4 )]
+[node name="Goli4" parent="Foes" index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 80, 96 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli5" parent="Foes" index="7" instance=ExtResource( 4 )]
+[node name="Goli5" parent="Foes" index="4" instance=ExtResource( 4 )]
 
 position = Vector2( 152, -80 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli6" parent="Foes" index="8" instance=ExtResource( 4 )]
+[node name="Goli6" parent="Foes" index="5" instance=ExtResource( 4 )]
 
 position = Vector2( 96, -32 )
-shiftTime = 2
+shiftTime = 1
 control = Vector2( -1, 0 )
 
-[node name="Goli7" parent="Foes" index="9" instance=ExtResource( 4 )]
+[node name="Goli7" parent="Foes" index="6" instance=ExtResource( 4 )]
 
 position = Vector2( 192, -192 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
-[node name="Goli8" parent="Foes" index="10" instance=ExtResource( 4 )]
+[node name="Goli8" parent="Foes" index="7" instance=ExtResource( 4 )]
 
 position = Vector2( 336, -120 )
-shiftTime = 2
+shiftTime = 1
 control = Vector2( 0, 1 )
 
-[node name="KeyFoes" type="Node2D" parent="Foes" index="11"]
+[node name="KeyFoes" type="Node2D" parent="Foes" index="8"]
 
+editor/display_folded = true
 script = ExtResource( 5 )
 
 [node name="Goli9" parent="Foes/KeyFoes" index="0" instance=ExtResource( 4 )]
 
 position = Vector2( -152, 184 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
 [node name="Goli10" parent="Foes/KeyFoes" index="1" instance=ExtResource( 4 )]
 
 position = Vector2( -176, 32 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
 [node name="Goli11" parent="Foes/KeyFoes" index="2" instance=ExtResource( 4 )]
 
 position = Vector2( -328, 128 )
-shiftTime = 2
-control = Vector2( 1, 0 )
+shiftTime = 1
 
 [node name="ItemPosition" type="Position2D" parent="Foes/KeyFoes" index="3"]
 
 position = Vector2( -256, 128 )
 
-[node name="Goal" parent="." index="4" instance=ExtResource( 6 )]
+[node name="Tomano" parent="Foes" index="9" instance=ExtResource( 6 )]
+
+position = Vector2( 208, 72 )
+
+[node name="Foe" parent="Foes" index="10" instance=ExtResource( 7 )]
+
+position = Vector2( 208, 192 )
+shiftTime = 1
+control = Vector2( -1, 0 )
+
+[node name="Goal" parent="." index="4" instance=ExtResource( 8 )]
 
 position = Vector2( 624, 104 )
 
@@ -266,15 +255,15 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Circle" parent="Items" index="0" instance=ExtResource( 7 )]
+[node name="Circle" parent="Items" index="0" instance=ExtResource( 9 )]
 
 position = Vector2( -344, 192 )
 
-[node name="Square" parent="Items" index="1" instance=ExtResource( 8 )]
+[node name="Square" parent="Items" index="1" instance=ExtResource( 10 )]
 
 position = Vector2( 344, 400 )
 
-[node name="Triangle" parent="Items" index="2" instance=ExtResource( 9 )]
+[node name="Triangle" parent="Items" index="2" instance=ExtResource( 11 )]
 
 position = Vector2( 336, -32 )
 
@@ -284,17 +273,17 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Door" parent="Doors" index="0" instance=ExtResource( 10 )]
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 12 )]
 
 position = Vector2( 296, 360 )
 
-[node name="Door2" parent="Doors" index="1" instance=ExtResource( 10 )]
+[node name="Door2" parent="Doors" index="1" instance=ExtResource( 12 )]
 
 position = Vector2( -344, 168 )
 rotation = 1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="OpenDoor" parent="Doors" index="2" instance=ExtResource( 11 )]
+[node name="OpenDoor" parent="Doors" index="2" instance=ExtResource( 13 )]
 
 position = Vector2( 232, 168 )
 
@@ -304,7 +293,7 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Key" parent="Keys" index="0" instance=ExtResource( 12 )]
+[node name="Key" parent="Keys" index="0" instance=ExtResource( 14 )]
 
 position = Vector2( 168, 408 )
 

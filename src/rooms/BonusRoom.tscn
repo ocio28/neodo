@@ -33,7 +33,7 @@ __meta__ = {
 [node name="OpenDoor" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 200, 200 )
-room = "outworld/Outroom"
+room = "Outworld"
 initialPosition = "BonusExit"
 
 [node name="Initial" type="Position2D" parent="." index="2"]
@@ -43,6 +43,5 @@ position = Vector2( 200, 184 )
 [node name="BigHeart" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 192, 96 )
-id = "BigHeart"
 
 
