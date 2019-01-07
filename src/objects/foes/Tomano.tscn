@@ -21,16 +21,12 @@ collision_mask = 2
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_lock_": true
-}
 maxHp = 1
 speed = Vector2( 40, 40 )
 shiftTime = 0.8
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
-scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
 
