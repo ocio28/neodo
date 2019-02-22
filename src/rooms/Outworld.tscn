@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/images/terrains/grass.png" type="Texture" id=1]
 [ext_resource path="res://src/tilesets/Outworld.tres" type="TileSet" id=2]
@@ -15,8 +15,10 @@
 [ext_resource path="res://src/objects/world/Door.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/objects/OpenDoor.tscn" type="PackedScene" id=14]
 [ext_resource path="res://src/objects/world/Key.tscn" type="PackedScene" id=15]
+[ext_resource path="res://src/objects/PageTrigger.tscn" type="PackedScene" id=16]
+[ext_resource path="res://src/ui/Page.tscn" type="PackedScene" id=17]
 
-[node name="Outworld" type="Node2D" index="0"]
+[node name="Outworld" type="Node2D"]
 
 __meta__ = {
 "_edit_horizontal_guides_": [ 216.0, 432.0, -216.0 ],
@@ -60,6 +62,8 @@ __meta__ = {
 }
 
 [node name="Bush" type="Node2D" parent="." index="2"]
+
+editor/display_folded = true
 
 [node name="Bush" parent="Bush" index="0" instance=ExtResource( 3 )]
 
@@ -260,6 +264,7 @@ position = Vector2( 336, -32 )
 
 [node name="Doors" type="Node2D" parent="." index="6"]
 
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -280,6 +285,7 @@ position = Vector2( 232, 168 )
 
 [node name="Keys" type="Node2D" parent="." index="7"]
 
+editor/display_folded = true
 __meta__ = {
 "_edit_lock_": true
 }
@@ -295,5 +301,17 @@ position = Vector2( 48, 80 )
 [node name="BonusExit" type="Position2D" parent="." index="9"]
 
 position = Vector2( 232, 184 )
+
+[node name="Pages" type="Node2D" parent="." index="10"]
+
+editor/display_folded = true
+
+[node name="PageTrigger" parent="Pages" index="0" instance=ExtResource( 16 )]
+
+position = Vector2( 164.964, 56.1163 )
+
+[node name="Page" parent="Pages/PageTrigger" index="1" instance=ExtResource( 17 )]
+
+visible = false
 
 

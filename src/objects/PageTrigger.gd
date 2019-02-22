@@ -10,6 +10,9 @@ func _ready():
 func _process(delta):
 	if Input.is_action_just_pressed("attack") and available:
 		$Page.visible = !$Page.visible
+		
+	get_tree().paused = $Page.visible
+	
 
 
 func _on_Area2D_body_entered(body):

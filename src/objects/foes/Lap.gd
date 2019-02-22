@@ -18,6 +18,10 @@ func _process(delta):
 	var velocity = Vector2(speed.x * direction, speed.y * yspeed * yDirection)
 
 	translate(velocity * delta)
+	
+
+func take_damage(dmg, facing):
+	queue_free()
 
 
 func _on_Area2D_body_entered(body):
