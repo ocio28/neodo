@@ -9,7 +9,7 @@ func take_damage(dmg, dir):
 	if randf() * 10 > 0.7:
 		spawn(drop)
 	else:
-		spawn(BIT)
+		spawn(ItemType.BIT)
 			
 	queue_free()
 
